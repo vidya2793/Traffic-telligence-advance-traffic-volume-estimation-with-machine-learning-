@@ -1,0 +1,45 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error
+import numpy as np
+
+# Load dataset
+url = 'https://raw.githubusercontent.com/selva86/datasets/master/Metro_Interstate_Traffic_Volume.csv'
+data = pd.read_csv(url)
+
+# Quick look
+print(data.head())
+
+# Handle missing values if any
+data = data.dropna()
+
+# Feature Engineering: Extract date/time features
+data['date_time'] = pd.to_datetime(data['date_time'])
+data['hour'] = data['date_time'].dt.hour
+data['dayofweek'] = data['date_time'].dt.dayofweek
+data['month'] = data['date_time'].dt.month
+
+# Select features and target
+features = ['temp', 'rain_1h', 'snow_1h', 'clouds_all', 'hour', 'dayofweek', 'month']
+target = 'traffic_volume'
+
+X = data[features]
+y = data[target]
+
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Model training
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Prediction
+y_pred = model.predict(X_test)
+
+# Evaluation
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+print(f'Root Mean Squared Error: {rmse:.2f}')
+
+# Sample prediction
+print('Sample predictions:', y_pred[:5])
