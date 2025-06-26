@@ -1,0 +1,37 @@
+✅ Step-by-Step: Using Counter on data['weather_main']
+📌 Full Python Code:
+python
+Copy code
+import pandas as pd
+from collections import Counter
+
+# Load dataset
+url = 'https://raw.githubusercontent.com/selva86/datasets/master/Metro_Interstate_Traffic_Volume.csv'
+data = pd.read_csv(url)
+
+# Show top 10 rows of the weather data
+print("📄 Sample 'weather_main' data:")
+print(data['weather_main'].head(10))
+
+# Use Counter to count weather categories
+weather_counts = Counter(data['weather_main'])
+
+# Convert to DataFrame for better display
+weather_df = pd.DataFrame(weather_counts.items(), columns=['Weather', 'Count']).sort_values(by='Count', ascending=False)
+
+# Display the result
+print("\n📊 Weather Condition Counts:")
+print(weather_df)
+🧾 Sample Output:
+Weather	Count
+Clouds	17627
+Clear	13493
+Rain	7927
+Drizzle	2837
+Mist	1702
+Snow	1144
+Haze	751
+Fog	476
+Smoke	180
+Squall	43
+
