@@ -1,0 +1,87 @@
+📂 1. Load and Explore the Data
+python
+Copy code
+import pandas as pd
+
+# Load dataset
+df = pd.read_csv("traffic_volume.csv")
+
+# Show top rows
+df.head()
+🛠️ 2. Feature Engineering
+python
+Copy code
+# Convert date_time to datetime format
+df['date_time'] = pd.to_datetime(df['date_time'])
+
+# Extract time-based features
+df['hour'] = df['date_time'].dt.hour
+df['day_of_week'] = df['date_time'].dt.dayofweek
+
+# Drop original datetime if not needed
+df.drop(['date_time'], axis=1, inplace=True)
+
+# Drop missing values
+df.dropna(inplace=True)
+📊 3. Correlation Matrix Table
+python
+Copy code
+# Calculate correlation matrix
+correlation_matrix = df.corr()
+
+# Display correlation matrix as a table
+correlation_matrix.round(2)
+🧾 Sample Table Output (rounded):
+
+Feature	traffic_volume	temp	rain_1h	snow_1h	clouds_all	hour	day_of_week
+traffic_volume	1.00	0.12	-0.03	-0.01	0.09	0.40	0.15
+temp	0.12	1.00	0.18	-0.05	-0.23	0.01	-0.02
+rain_1h	-0.03	0.18	1.00	0.22	0.05	-0.03	-0.01
+hour	0.40	0.01	-0.03	-0.01	0.02	1.00	-0.03
+(and so on)							
+
+🗺️ 4. Visualize Correlation with Heatmap
+python
+Copy code
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, fmt=".2f", cmap='coolwarm')
+plt.title("Correlation Heatmap")
+plt.show()
+🧠 5. Build a Basic ML Model
+python
+Copy code
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import r2_score, mean_absolute_error
+
+# Prepare features and target
+X = df.drop('traffic_volume', axis=1)
+y = df['traffic_volume']
+
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train model
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Predictions
+y_pred = model.predict(X_test)
+
+# Evaluation
+print("R² Score:", r2_score(y_test, y_pred))
+print("MAE:", mean_absolute_error(y_test, y_pred))
+📈 6. Plot Actual vs Predicted
+python
+Copy code
+plt.figure(figsize=(12,6))
+plt.plot(y_test.values[:100], label='Actual')
+plt.plot(y_pred[:100], label='Predicted')
+plt.title("Actual vs Predicted Traffic Volume")
+plt.xlabel("Sample")
+plt.ylabel("Traffic Volume")
+plt.legend()
+plt.show()
