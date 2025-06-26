@@ -1,0 +1,107 @@
+Basic HTML code for Traffic Volume Estimation Project
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Advanced Traffic Volume Estimation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f7fa;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .evaluation {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #eaf2f8;
+            border-left: 5px solid #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Advanced Traffic Volume Estimation with Machine Learning</h1>
+    <p>This project aims to estimate short-term traffic volume using machine learning models and analyze their accuracy using evaluation metrics such as R-squared score.</p>
+
+    <h2>Sample Traffic Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Year</th>
+                <th>Month</th>
+                <th>Day</th>
+                <th>Hour</th>
+                <th>Minute</th>
+                <th>Second</th>
+                <th>Traffic Volume</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2025-06-26</td>
+                <td>14:23:45</td>
+                <td>2025</td>
+                <td>6</td>
+                <td>26</td>
+                <td>14</td>
+                <td>23</td>
+                <td>45</td>
+                <td>120</td>
+            </tr>
+            <tr>
+                <td>2025-06-26</td>
+                <td>15:45:12</td>
+                <td>2025</td>
+                <td>6</td>
+                <td>26</td>
+                <td>15</td>
+                <td>45</td>
+                <td>12</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td>2025-06-27</td>
+                <td>08:10:00</td>
+                <td>2025</td>
+                <td>6</td>
+                <td>27</td>
+                <td>8</td>
+                <td>10</td>
+                <td>0</td>
+                <td>150</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="evaluation">
+        <h2>Model Evaluation</h2>
+        <p><strong>R-squared Score:</strong> 0.84</p>
+        <p>This indicates the model explains 84% of the variability in traffic volume, showing a good fit.</p>
+    </div>
+
+</body>
+</html>
