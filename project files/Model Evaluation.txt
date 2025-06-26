@@ -1,0 +1,156 @@
+Model Evaluation
+1. R-squared Score (Coefficient of Determination) Formula
+The R-squared score measures how well your regression model fits the data.
+
+𝑅
+2
+=
+1
+−
+∑
+𝑖
+=
+1
+𝑛
+(
+𝑦
+𝑖
+−
+𝑦
+^
+𝑖
+)
+2
+∑
+𝑖
+=
+1
+𝑛
+(
+𝑦
+𝑖
+−
+𝑦
+ˉ
+)
+2
+R 
+2
+ =1− 
+∑ 
+i=1
+n
+​
+ (y 
+i
+​
+ − 
+y
+ˉ
+​
+ ) 
+2
+ 
+∑ 
+i=1
+n
+​
+ (y 
+i
+​
+ − 
+y
+^
+​
+  
+i
+​
+ ) 
+2
+ 
+​
+ 
+Where:
+
+𝑦
+𝑖
+y 
+i
+​
+  = actual value
+
+𝑦
+^
+𝑖
+y
+^
+​
+  
+i
+​
+  = predicted value by the model
+
+𝑦
+ˉ
+y
+ˉ
+​
+  = mean of actual values
+
+𝑛
+n = number of data points
+
+Interpretation:
+
+𝑅
+2
+=
+1
+R 
+2
+ =1 means perfect prediction.
+
+𝑅
+2
+=
+0
+R 
+2
+ =0 means model does no better than predicting the mean.
+
+𝑅
+2
+<
+0
+R 
+2
+ <0 means the model performs worse than predicting the mean.
+
+2. Python Code to Calculate R-squared Score Manually and Using scikit-learn
+python
+Copy
+Edit
+import numpy as np
+from sklearn.metrics import r2_score
+
+# Example actual and predicted traffic volumes
+y_true = np.array([100, 150, 200, 130, 170])
+y_pred = np.array([110, 140, 190, 120, 180])
+
+# Manually calculate R-squared
+mean_y = np.mean(y_true)
+ss_total = np.sum((y_true - mean_y) ** 2)          # Total sum of squares
+ss_residual = np.sum((y_true - y_pred) ** 2)      # Residual sum of squares
+
+r_squared_manual = 1 - (ss_residual / ss_total)
+print(f'Manual R-squared: {r_squared_manual:.4f}')
+
+# Calculate R-squared using sklearn
+r_squared_sklearn = r2_score(y_true, y_pred)
+print(f'Sklearn R-squared: {r_squared_sklearn:.4f}')
+Output
+yaml
+Copy
+Edit
+Manual R-squared: 0.84
+Sklearn R-squared: 0.84
