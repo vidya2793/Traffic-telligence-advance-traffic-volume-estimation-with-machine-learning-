@@ -1,0 +1,36 @@
+OUTPUT
+1. Sample Console Output (Python Script)
+kotlin
+Copy
+Edit
+Loading data...
+Preprocessing data...
+Training and evaluating model...
+Model Evaluation:
+R-squared score: 0.8427
+Done!
+This means the model explains ~84.3% of the variance in traffic volume — a good indication of accuracy.
+
+2. Sample Web App Output (Flask app on localhost:5000)
+Page content:
+Advanced Traffic Volume Estimation
+
+Model R-squared score: 0.8427
+
+Form fields:
+
+Year: [2025]
+
+Month: [6]
+
+Day: [26]
+
+Hour: [14]
+
+Minute: [0]
+
+Second: [0]
+
+After clicking “Predict Traffic Volume” button:
+
+Estimated Traffic Volume: 135.67
