@@ -1,0 +1,39 @@
+Code for splitting datetime column
+python
+Copy
+Edit
+import pandas as pd
+
+# Example data - suppose you have a DataFrame with a 'datetime' column
+data = {
+    'datetime': ['2025-06-26 14:23:45', '2025-06-26 15:45:12', '2025-06-27 08:10:00'],
+    'traffic_volume': [120, 200, 150]
+}
+
+df = pd.DataFrame(data)
+
+# Convert 'datetime' column to pandas datetime type
+df['datetime'] = pd.to_datetime(df['datetime'])
+
+# Split into components
+df['year'] = df['datetime'].dt.year
+df['month'] = df['datetime'].dt.month
+df['day'] = df['datetime'].dt.day
+df['hour'] = df['datetime'].dt.hour
+df['minute'] = df['datetime'].dt.minute
+df['second'] = df['datetime'].dt.second
+
+# Create separate 'date' and 'time' columns
+df['date'] = df['datetime'].dt.date
+df['time'] = df['datetime'].dt.time
+
+# Display the new table
+print(df)
+Output
+yaml
+Copy
+Edit
+             datetime  traffic_volume  year  month  day  hour  minute  second        date      time
+0 2025-06-26 14:23:45             120  2025      6   26    14      23      45  2025-06-26  14:23:45
+1 2025-06-26 15:45:12             200  2025      6   26    15      45      12  2025-06-26  15:45:12
+2 2025-06-27 08:10:00             150  2025      6   27     8      10       0  2025-06-27  08:10:00
