@@ -1,0 +1,18 @@
+ Visualize data with boxplots
+Here’s a simple example using pandas and matplotlib:
+
+python
+Copy
+Edit
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load your dataset (example CSV file)
+data = pd.read_csv('traffic_volume.csv')
+
+# Suppose your dataset has a column 'volume' representing traffic volume
+# Boxplot for the traffic volume
+data.boxplot(column='volume')
+plt.title('Boxplot of Traffic Volume')
+plt.ylabel('Volume')
+plt.show()
