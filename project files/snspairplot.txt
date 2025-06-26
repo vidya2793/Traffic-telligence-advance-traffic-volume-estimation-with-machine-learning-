@@ -1,0 +1,28 @@
+Full Mini Example including sns.pairplot
+python
+Copy
+Edit
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Simulate traffic volume data for 7 days hourly
+time_index = pd.date_range(start='2025-06-01 00:00', periods=24*7, freq='H')
+
+df = pd.DataFrame({
+    'hour': time_index.hour,
+    'day_of_week': time_index.dayofweek
+})
+
+df['traffic_volume'] = (
+    20 +
+    30 * np.sin((df['hour'] / 24) * 2 * np.pi) +
+    10 * (df['day_of_week'] >= 5).astype(int) +
+    np.random.normal(0, 5, len(df))
+).clip(min=0)
+
+# Pairplot for exploratory analysis
+sns.pairplot(df)
+plt.suptitle('Pairplot of Traffic Volume Dataset', y=1.02)
+plt.show()
