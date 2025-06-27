@@ -1,0 +1,39 @@
+REVOLUTIONIZING  LIVER  CARE:PREDICTING  LIVER  CIRRHOSIS USING ADVANCED MACHINE  LEARNING TECHNIQUES
+
+1.TITLE :REVOLUTIONIZING  LIVER  CARE :PREDICTING LIVER  CIRRHOSIS USING ML
+2.OBJECTIVE :To predict the presence and severity of liver cirrhosis early using machine learning (ML) models to assist in timely diagnosis and better treatment planning.
+
+3.DATASET  USED: (i) L IVER PATIENT DATASET (e.g., UCI Liver disorders dataset or  kaggle dataset)
+(ii) Features:Age,Gender,Bilirubin,,Enzymes(ALT,AST),Albumin,etc.
+
+4.TOOLS&TECHNOLOGIES:
+(i)Python
+(ii)Libraries: Pandas,Numpy, Scikit-learn,Matplotlib,Seaborn
+(iii) Jupyter Notebook /Google  Colab
+
+5.ML ALGORITHMS USED:
+(i) Logistic Regression
+(ii)Decision Tree
+(iii)Random Forest
+(iv)Support Vector Machine(SVM)
+(v)K-Nearest Neighbors (KNN)
+
+6.PROCESS:
+(i)Data Cleaning &Preprocessing
+(ii)Feature Selection
+(iii)Model Training &Testing
+(iv)Accuracy  Evaluation 
+(v)Model Comparision
+
+7. RESULTS:
+(i)Best Performing model:Random Forest(example)
+(ii)Achieved Accuracy:~85-90%(varies)
+
+8.OUTCOME:ML helps predict liver cirrhosis effectively, enabling doctors to take preventive measures early improve patient care.
+
+9.FUTURE SCOPE:
+(i)Use of deep learning (e.g.,ANN,CNN)
+(ii)Integration wirth clinical decision support system
+(iii)Real-time health monitoring using lo T+ML
+
+10.CONCLUSION : Machine learning models can accurately predit liver cirrhosis using patient data. This helps in early diagnosis and better treatment. Among the models tested,Random forest gave the best results .The project shows that AL can improve liver care and support doctors in saving lives.
